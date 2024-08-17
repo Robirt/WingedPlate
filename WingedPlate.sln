@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingedPlate.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingedPlate.Application", "WingedPlate.Application\WingedPlate.Application.csproj", "{A79D12B1-42E1-4F60-9B6C-15EE861F396B}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "WingedPlate", "WingedPlate\WingedPlate.esproj", "{5A591701-30CD-4339-B83D-D0C28DF53AAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{A79D12B1-42E1-4F60-9B6C-15EE861F396B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A79D12B1-42E1-4F60-9B6C-15EE861F396B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A79D12B1-42E1-4F60-9B6C-15EE861F396B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A591701-30CD-4339-B83D-D0C28DF53AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A591701-30CD-4339-B83D-D0C28DF53AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A591701-30CD-4339-B83D-D0C28DF53AAA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5A591701-30CD-4339-B83D-D0C28DF53AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A591701-30CD-4339-B83D-D0C28DF53AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A591701-30CD-4339-B83D-D0C28DF53AAA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
