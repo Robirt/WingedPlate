@@ -14,4 +14,5 @@ public class UserEntity : EntityBase
 
     public byte[]? PasswordSalt { get; set; }
 
+    public List<CommentEntity> Comments { get; set; } = [];
 }
