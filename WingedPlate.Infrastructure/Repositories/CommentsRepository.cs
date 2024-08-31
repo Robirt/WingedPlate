@@ -9,34 +9,36 @@ public class CommentsRepository : ICommentsRepository
 
     public CommentsRepository(WingedPlateDbContext wingedPlateDbContext)
     {
+        ArgumentNullException.ThrowIfNull(wingedPlateDbContext, nameof(wingedPlateDbContext));
+
         _wingedPlateDbContext = wingedPlateDbContext;
     }
 
-    public async Task<List<CommentEntity>> GetCommentsAsync()
+    public async Task<List<CommentEntity>> GetCommentsAsync(CancellationToken cancellationToken)
     {
-        return await _wingedPlateDbContext.Comments.Include(comments => comments.Recipe).ToListAsync();
+        return await _wingedPlateDbContext.Comments.Include(comments => comments.Recipe).ToListAsync(cancellationToken);
     }
 
-    public async Task<CommentEntity?> GetCommentByIdAsync(int id)
+    public async Task<CommentEntity?> GetCommentByIdAsync(int id, CancellationToken cancellationToken)
     {
-        return await _wingedPlateDbContext.Comments.Include(comments => comments.Recipe).SingleOrDefaultAsync(comment => comment.Id == id);
+        return await _wingedPlateDbContext.Comments.Include(comments => comments.Recipe).SingleOrDefaultAsync(comment => comment.Id == id, cancellationToken);
     }
 
-    public async Task AddCommentAsync(CommentEntity comment)
+    public async Task AddCommentAsync(CommentEntity comment, CancellationToken cancellationToken)
     {
-        await _wingedPlateDbContext.Comments.AddAsync(comment);
+        await _wingedPlateDbContext.Comments.AddAsync(comment, cancellationToken);
         await _wingedPlateDbContext.SaveChangesAsync();
     }
 
-    public async Task UpdateCommentAsync(CommentEntity comment)
+    public async Task UpdateCommentAsync(CommentEntity comment, CancellationToken cancellationToken)
     {
         _wingedPlateDbContext.Comments.Update(comment);
-        await _wingedPlateDbContext.SaveChangesAsync();
+        await _wingedPlateDbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task RemoveCommentAsync(CommentEntity comment)
+    public async Task RemoveCommentAsync(CommentEntity comment, CancellationToken cancellationToken)
     {
         _wingedPlateDbContext.Comments.Remove(comment);
-        await _wingedPlateDbContext.SaveChangesAsync();
+        await _wingedPlateDbContext.SaveChangesAsync(cancellationToken);
     }
 }

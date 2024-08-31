@@ -1,8 +1,8 @@
 ﻿using WingedPlate.Domain.Entities;
 
-namespace WingedPlate.Infrastructure.Repositories;
+namespace WingedPlate.Application.Services;
 
-public interface ITagsRepository
+public interface ITagsService
 {
     public Task<List<TagEntity>> GetTagsAsync(CancellationToken cancellationToken);
 
@@ -12,5 +12,5 @@ public interface ITagsRepository
 
     public Task UpdateTagAsync(TagEntity tag, CancellationToken cancellationToken);
 
-    public Task RemoveTagAsync(TagEntity tag, CancellationToken cancellationToken);
+    public Task RemoveTagAsync(int id, CancellationToken cancellationToken);
 }

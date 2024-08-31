@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WingedPlate.Infrastructure\WingedPlate.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

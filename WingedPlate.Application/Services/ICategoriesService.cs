@@ -1,8 +1,8 @@
 ﻿using WingedPlate.Domain.Entities;
 
-namespace WingedPlate.Infrastructure.Repositories;
+namespace WingedPlate.Application.Services;
 
-public interface ICategoriesRepository
+public interface ICategoriesService
 {
     public Task<List<CategoryEntity>> GetCategoriesAsync(CancellationToken cancellationToken);
 
@@ -12,5 +12,5 @@ public interface ICategoriesRepository
 
     public Task UpdateCategoryAsync(CategoryEntity category, CancellationToken cancellationToken);
 
-    public Task RemoveCategoryAsync(CategoryEntity category, CancellationToken cancellationToken);
+    public Task RemoveCategoryAsync(int id, CancellationToken cancellationToken);
 }

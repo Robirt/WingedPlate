@@ -1,8 +1,8 @@
 ﻿using WingedPlate.Domain.Entities;
 
-namespace WingedPlate.Infrastructure.Repositories;
+namespace WingedPlate.Application.Services;
 
-public interface ICommentsRepository
+public interface ICommentsService
 {
     public Task<List<CommentEntity>> GetCommentsAsync(CancellationToken cancellationToken);
 
@@ -12,5 +12,5 @@ public interface ICommentsRepository
 
     public Task UpdateCommentAsync(CommentEntity comment, CancellationToken cancellationToken);
 
-    public Task RemoveCommentAsync(CommentEntity comment, CancellationToken cancellationToken);
+    public Task RemoveCommentAsync(int id, CancellationToken cancellationToken);
 }

@@ -1,8 +1,8 @@
 ﻿using WingedPlate.Domain.Entities;
 
-namespace WingedPlate.Infrastructure.Repositories;
+namespace WingedPlate.Application.Services;
 
-public interface IMealTypesRepository
+public interface IMealTypesService
 {
     public Task<List<MealTypeEntity>> GetMealTypesAsync(CancellationToken cancellationToken);
 
@@ -12,5 +12,5 @@ public interface IMealTypesRepository
 
     public Task UpdateMealTypeAsync(MealTypeEntity mealtype, CancellationToken cancellationToken);
 
-    public Task RemoveMealTypeAsync(MealTypeEntity mealtype, CancellationToken cancellationToken);
+    public Task RemoveMealTypeAsync(int id, CancellationToken cancellationToken);
 }

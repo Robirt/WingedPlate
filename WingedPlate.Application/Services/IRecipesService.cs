@@ -1,8 +1,8 @@
 ﻿using WingedPlate.Domain.Entities;
 
-namespace WingedPlate.Infrastructure.Repositories;
+namespace WingedPlate.Application.Services;
 
-public interface IRecipesRepository
+public interface IRecipesService
 {
     public Task<List<RecipeEntity>> GetRecipiesAsync(CancellationToken cancellationToken);
 
@@ -12,5 +12,5 @@ public interface IRecipesRepository
 
     public Task UpdateRecipeAsync(RecipeEntity recipe, CancellationToken cancellationToken);
 
-    public Task RemoveRecipeAsync(RecipeEntity recipe, CancellationToken cancellationToken);
+    public Task RemoveRecipeAsync(int id, CancellationToken cancellationToken);
 }

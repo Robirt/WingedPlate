@@ -9,34 +9,36 @@ public class MealTypesRepository : IMealTypesRepository
 
     public MealTypesRepository(WingedPlateDbContext wingedPlateDbContext)
     {
+        ArgumentNullException.ThrowIfNull(wingedPlateDbContext, nameof(wingedPlateDbContext));
+
         _wingedPlateDbContext = wingedPlateDbContext;
     }
 
-    public async Task<List<MealTypeEntity>> GetMealTypesAsync()
+    public async Task<List<MealTypeEntity>> GetMealTypesAsync(CancellationToken cancellationToken)
     {
-        return await _wingedPlateDbContext.Meals.Include(mealTypes => mealTypes.Recipes).ToListAsync();
+        return await _wingedPlateDbContext.Meals.Include(mealTypes => mealTypes.Recipes).ToListAsync(cancellationToken);
     }
 
-    public async Task<MealTypeEntity?> GetMealTypeByIdAsync(int id)
+    public async Task<MealTypeEntity?> GetMealTypeByIdAsync(int id, CancellationToken cancellationToken)
     {
-        return await _wingedPlateDbContext.Meals.Include(mealTypes => mealTypes.Recipes).SingleOrDefaultAsync(mealtype => mealtype.Id == id);
+        return await _wingedPlateDbContext.Meals.Include(mealTypes => mealTypes.Recipes).SingleOrDefaultAsync(mealtype => mealtype.Id == id, cancellationToken);
     }
 
-    public async Task AddMealTypeAsync(MealTypeEntity mealtype)
+    public async Task AddMealTypeAsync(MealTypeEntity mealtype, CancellationToken cancellationToken)
     {
-        await _wingedPlateDbContext.Meals.AddAsync(mealtype);
-        await _wingedPlateDbContext.SaveChangesAsync();
+        await _wingedPlateDbContext.Meals.AddAsync(mealtype, cancellationToken);
+        await _wingedPlateDbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task UpdateMealTypeAsync(MealTypeEntity mealtype)
+    public async Task UpdateMealTypeAsync(MealTypeEntity mealtype, CancellationToken cancellationToken)
     {
         _wingedPlateDbContext.Meals.Update(mealtype);
-        await _wingedPlateDbContext.SaveChangesAsync();
+        await _wingedPlateDbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task RemoveMealTypeAsync(MealTypeEntity mealtype)
+    public async Task RemoveMealTypeAsync(MealTypeEntity mealtype, CancellationToken cancellationToken)
     {
         _wingedPlateDbContext.Meals.Remove(mealtype);
-        await _wingedPlateDbContext.SaveChangesAsync();
+        await _wingedPlateDbContext.SaveChangesAsync(cancellationToken);
     }
 }
