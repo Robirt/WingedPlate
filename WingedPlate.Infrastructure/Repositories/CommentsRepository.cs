@@ -3,7 +3,7 @@ using WingedPlate.Domain.Entities;
 
 namespace WingedPlate.Infrastructure.Repositories;
 
-public class CommentsRepository
+public class CommentsRepository : ICommentsRepository
 {
     private readonly WingedPlateDbContext _wingedPlateDbContext;
 

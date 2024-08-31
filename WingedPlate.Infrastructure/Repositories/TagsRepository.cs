@@ -3,7 +3,7 @@ using WingedPlate.Domain.Entities;
 
 namespace WingedPlate.Infrastructure.Repositories;
 
-public class TagsRepository
+public class TagsRepository : ITagsRepository
 {
     private readonly WingedPlateDbContext _wingedPlateDbContext;
 

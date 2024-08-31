@@ -3,7 +3,7 @@ using WingedPlate.Domain.Entities;
 
 namespace WingedPlate.Infrastructure.Repositories;
 
-public class LevelsRepository
+public class LevelsRepository : ILevelsRepositories
 {
     private readonly WingedPlateDbContext _wingedPlateDbContext;
 

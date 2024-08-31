@@ -3,7 +3,7 @@ using WingedPlate.Domain.Entities;
 
 namespace WingedPlate.Infrastructure.Repositories;
 
-public class RecipesRepository
+public class RecipesRepository : IRecipesRepository
 {
     private readonly WingedPlateDbContext _wingedPlateDbContext;
 
