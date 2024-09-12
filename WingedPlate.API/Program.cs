@@ -1,3 +1,4 @@
+using WingedPlate.API;
 using WingedPlate.Infrastructure;
 
 var webApplicationBuilder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,10 @@ webApplicationBuilder.Services.AddAuthentication();
 webApplicationBuilder.Services.AddAuthorization();
 
 webApplicationBuilder.Services.AddDbContext<WingedPlateDbContext>();
+
+webApplicationBuilder.Services.AddRepositories();
+
+webApplicationBuilder.Services.AddServices();
 
 webApplicationBuilder.Services.AddControllers();
 

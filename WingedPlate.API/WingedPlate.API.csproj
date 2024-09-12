@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WingedPlate.Application\WingedPlate.Application.csproj" />
     <ProjectReference Include="..\WingedPlate.Infrastructure\WingedPlate.Infrastructure.csproj" />
   </ItemGroup>
 
